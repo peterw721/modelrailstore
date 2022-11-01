@@ -1,0 +1,22 @@
+﻿@model _92031083_ModelRailStore.Models.ApplicationUser
+@{
+    ViewBag.Title = "My Details";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        @Html.Partial("_UserDetailsPartial", Model)
+        <dt>
+            Password
+        </dt>
+        <dd>
+            <h2 class="with-highlight">@Html.ActionLink("Change your Password", "ChangePassword")</h2>
+        </dd>
+    </dl>
+</div>
+<br />
+<h2 class="with-highlight">@Html.ActionLink("Edit", "Edit", new { id = Model.Id })</h2>
+<h2 class="with-highlight">@Html.ActionLink("View my Orders", "Index", "Orders")</h2>

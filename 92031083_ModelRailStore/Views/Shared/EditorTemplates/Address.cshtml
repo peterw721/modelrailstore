@@ -1,0 +1,41 @@
+﻿@model _92031083_ModelRailStore.Models.Address
+
+<div class="form-group">
+    @Html.LabelFor(model => model.AddressLine1, htmlAttributes: new { @class = "control-label label" })
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.AddressLine1, new { htmlAttributes = new { @class = "form-control user-input", @placeholder = "Address Line 1" } })
+        @Html.ValidationMessageFor(model => model.AddressLine1, "", new { @class = "sidebar-right warn-message" })
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.AddressLine2, htmlAttributes: new { @class = "control-label label" })
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.AddressLine2, new { htmlAttributes = new { @class = "form-control user-input", @placeholder = "Address Line 2" } })
+        @Html.ValidationMessageFor(model => model.AddressLine2, "", new { @class = "sidebar-right warn-message" })
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.Town, htmlAttributes: new { @class = "control-label label" })
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.Town, new { htmlAttributes = new { @class = "form-control user-input", @placeholder = "Town" } })
+        @Html.ValidationMessageFor(model => model.Town, "", new { @class = "sidebar-right warn-message" })
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.Country, htmlAttributes: new { @class = "control-label label" })
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.Country, new { htmlAttributes = new { @class = "form-control user-input", @placeholder = "Country" } })
+        @Html.ValidationMessageFor(model => model.Country, "", new { @class = "sidebar-right warn-message" })
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.PostCode, htmlAttributes: new { @class = "control-label label" })
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.PostCode, new { htmlAttributes = new { @class = "form-control user-input", @placeholder = "Post Code" } })
+        @Html.ValidationMessageFor(model => model.PostCode, "", new { @class = "sidebar-right warn-message" })
+    </div>
+</div>

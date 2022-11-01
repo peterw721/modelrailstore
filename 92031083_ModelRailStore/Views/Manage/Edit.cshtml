@@ -1,0 +1,33 @@
+﻿@model _92031083_ModelRailStore.ViewModels.EditUserViewModel
+
+@{
+    ViewBag.Title = "Edit My Details";
+}
+
+<h2>@ViewBag.Title</h2>
+<div class="olive-background">
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.Partial("_EditUserPartial", Model)
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="submit-btn" />
+            </div>
+        </div>
+    </div>
+    <br />
+}
+</div>
+<div class="row"></div>
+<div>
+    <h2 class="with-highlight">@Html.ActionLink("Back to List", "Index")</h2>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

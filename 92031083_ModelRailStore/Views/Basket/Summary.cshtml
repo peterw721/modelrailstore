@@ -1,0 +1,8 @@
+﻿@model _92031083_ModelRailStore.ViewModels.BasketSummaryViewModel
+<div class="row"></div>
+    <div class="sidebar-right with-highlight"> 
+        <h2>@Html.ActionLink("Your basket: " + Model.NumberOfItems + " items(s) " +
+        HttpUtility.HtmlDecode(Html.DisplayFor(model => Model.TotalCost).ToString()),
+        "Index", "Basket")</h2>
+    </div>
+

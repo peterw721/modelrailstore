@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "Administration Options";
+}
+
+<h4 class="sidebar-left">@ViewBag.Title</h4>
+<div class="row"></div>
+<div class="container">
+    <div class="row">
+        <h2 class="with-highlight">@Html.ActionLink("Manage Images", "Index", "ProductImages")</h2>
+    </div>
+
+    <div class="row">
+        <h2 class="with-highlight">@Html.ActionLink("Manage Roles", "Index", "RolesAdmin")</h2>
+</div>
+
+    <div class="row">
+        <h2 class="with-highlight">@Html.ActionLink("Manage Users", "Index", "UsersAdmin")</h2>
+</div>
+    <div class="row">
+        <h2 class="with-highlight">@Html.ActionLink("View all Orders", "Index", "Orders")</h2>
+</div>
+</div>
+

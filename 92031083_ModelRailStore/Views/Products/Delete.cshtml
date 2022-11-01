@@ -1,0 +1,60 @@
+﻿@model _92031083_ModelRailStore.Models.Product
+
+@{
+    ViewBag.Title = "Delete Product";
+}
+
+<div class="red-background">
+    <div class="row"></div>
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <dl class="dl-horizontal">
+            <dt class="control-label label">
+                @Html.DisplayNameFor(model => model.Category.Name)
+            </dt>
+            <dd>
+                <h1>@Html.DisplayFor(model => model.Category.Name)</h1>
+            </dd>
+            <dt class="control-label label">
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dd>
+                <h1>@Html.DisplayFor(model => model.Name)</h1>
+            </dd>
+            <dt class="control-label label">
+                @Html.DisplayNameFor(model => model.Year)
+            </dt>
+            <dd>
+                <h1>@Html.DisplayFor(model => model.Year)</h1>
+            </dd>
+            <dt class="control-label label">
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+            <dd>
+                <h1>@Html.DisplayFor(model => model.Description)</h1>
+            </dd>
+            <dt class="control-label label">
+                @Html.DisplayNameFor(model => model.Price)
+            </dt>
+            <dd>
+                <h1>@Html.DisplayFor(model => model.Price)</h1>
+            </dd>
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-group">
+                <div class="col-md-10">
+                    <input type="submit" id="submit-btn" value="Delete" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.ActionLink("Back to List", "Index", routeValues: null, htmlAttributes: new { @class = "label" })
+                </div>
+            </div>
+        }
+        <div class="row"></div>
+    </div>
+</div>

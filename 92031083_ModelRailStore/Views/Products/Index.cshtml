@@ -1,0 +1,115 @@
+﻿@model _92031083_ModelRailStore.ViewModels.ProductIndexViewModel
+@using PagedList.Mvc;
+
+<div class="row"></div>
+
+    @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+    {
+        <div class="admin-options">
+            <h5 class="sidebar-left admin-create">@Html.ActionLink("Create New", "Create")</h5>
+        </div>
+        <div class="row"></div>
+    }
+    <div>
+        <div>
+            <h2>@(String.IsNullOrWhiteSpace(Model.Search) ? "Showing all" : "Your search for " + Model.Search + " found")
+                @Model.Products.TotalItemCount products:
+                Page @(Model.Products.PageCount <Model.Products.PageNumber ? 0 : Model.Products.PageNumber)
+                of
+                @Model.Products.PageCount
+            </h2>
+        </div>
+        <div class="sidebar-left">
+            <h2>@using (Html.BeginRouteForm("ProductsIndex", FormMethod.Get))
+                {
+                    <label>Filter by category:</label>
+                    @Html.DropDownListFor(vm => vm.Category, Model.CatFilterItems, "All");
+                    <label>Sort By:</label>
+                    @Html.DropDownListFor(vm => vm.SortBy, new SelectList(Model.Sorts, "Value", "Key"), "Default")
+                    <input type="submit" id="submit-btn" value="Filter" />
+                    <input type="hidden" name="Search" id="Search" value="@Model.Search" />
+                }
+            </h2>
+        </div>
+        <div class="row"></div>
+            @Html.PagedListPager(Model.Products, page => Url.Action("Index", new
+               {
+                   category = Model.Category,
+                   Search = Model.Search,
+                   sortBy = Model.SortBy,
+                   page
+               }), new PagedListRenderOptions { LiElementClasses = new List<string> { "page-number" }})
+        </div>
+    <div class="row"></div>
+    <div class="full-page">
+        <table class="table-style">
+            <tr class="md-text">
+                <th></th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Category)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Products.First().Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Products.First().Year)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Products.First().Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Products.First().Price)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model.Products)
+            {
+            <tr>
+                <td>
+                    @if (item.ProductImageMappings != null && item.ProductImageMappings.Any())
+                    {
+                        <a href="@Url.Action("Details", new { id = item.ID })">
+                            <img src="@(Url.Content(Constants.ProductImagePath) +
+                            item.ProductImageMappings.OrderBy(pim => pim.ImageNumber).ElementAt(0).ProductImage.FileName)" />
+                        </a>
+                        }
+                    </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Year)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+
+                    @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                    {
+                    <div class="admin-options">
+                        <h5 class="sidebar-left admin-edit">
+                            @Html.ActionLink("Edit", "Edit", new { id = item.ID })
+                        </h5>
+                        <h5 class="sidebar-left admin-delete">
+                            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                        </h5>
+                        <h5 class="sidebar-left admin-details">
+                            @Html.ActionLink("Details", "Details", new { id = item.ID })
+                        </h5>
+                    </div>
+                    }
+                </td>
+            </tr>
+            }
+
+        </table>
+    </div>
+<div class="row"></div>

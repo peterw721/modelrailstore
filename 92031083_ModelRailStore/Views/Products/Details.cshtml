@@ -1,0 +1,91 @@
+﻿@model _92031083_ModelRailStore.Models.Product
+
+@{
+    ViewBag.Title = "Product Details";
+}
+<div class="sidebar-left">
+    <h2 class="lg-boldtext">@ViewBag.Title</h2>
+</div>
+    <div class="row"></div>
+
+    <div>
+        <dl class="dl-horizontal">
+            <dt class="control-label-green label-green">
+                @Html.DisplayNameFor(model => model.Category.Name)
+            </dt>
+            <dd>
+                <h6>@Html.DisplayFor(model => model.Category.Name)</h6>
+            </dd>
+            <dt class="control-label-green label-green">
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dd>
+                <h6>@Html.DisplayFor(model => model.Name)</h6>
+            </dd>
+            <dt class="control-label-green label-green">
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+            <dd>
+                <h6>@Html.DisplayFor(model => model.Description)</h6>
+            </dd>
+            <dt class="control-label-green label-green">
+                @Html.DisplayNameFor(model => model.Year)
+            </dt>
+            <dd>
+                <h6>@Html.DisplayFor(model => model.Year)</h6>
+            </dd>
+            <dt class="control-label-green label-green">
+                @Html.DisplayNameFor(model => model.Price)
+            </dt>
+            <dd>
+                <h6>@Html.DisplayFor(model => model.Price)</h6>
+            </dd>
+
+            @if (Model.ProductImageMappings != null && Model.ProductImageMappings.Any())
+            {
+                <dt></dt>
+                <dd>
+                    <img src="@(Url.Content(Constants.ProductImagePath) +
+                    Model.ProductImageMappings.OrderBy(pim => pim.ImageNumber).ElementAt(0).ProductImage.FileName)"
+                         style=padding:5px; />
+                </dd>
+
+                <dt></dt>
+                <dd>
+                    @foreach (var item in Model.ProductImageMappings.OrderBy(pim => pim.ImageNumber))
+                    {
+                        <a href="@(Url.Content(Constants.ProductImagePath) + item.ProductImage.FileName)">
+                            <img src="@(Url.Content(Constants.ProductThumbnailPath) + item.ProductImage.FileName)" style=padding:5px;>
+                        </a>
+                    }
+                </dd>
+            }
+            <dt class="control-label-green label-green">
+                Quantity:
+            </dt>
+            <dd>
+                @using (Html.BeginForm("AddToBasket", "Basket"))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(model => model.ID)
+                    @Html.DropDownList("quantity", Enumerable.Range(1, 10).Select(i => new SelectListItem { Text =
+                        i.ToString(), Value = i.ToString() }))
+                        <input type="submit" id="add-btn" value="Add to Basket" />
+                }
+            </dd>
+        </dl>
+    </div>
+    <p>
+        @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+        {
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }, htmlAttributes: new { @class = "label-green" })
+                </div>
+            </div>
+        <div class="row"></div>
+        }
+        @Html.ActionLink("Back to List", "Index", routeValues: null, htmlAttributes: new { @class = "label-green" })
+    </p>
+    <div class="row"></div>
+

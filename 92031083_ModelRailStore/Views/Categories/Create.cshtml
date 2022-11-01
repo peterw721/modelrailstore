@@ -1,0 +1,40 @@
+﻿@model _92031083_ModelRailStore.Models.Category
+
+@{
+    ViewBag.Title = "Create New Category";
+}
+
+<div class="bg-image">
+    <div class="sidebar-left">
+        <h4>@ViewBag.Title</h4>
+    </div>
+    <div class="row"></div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label label" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control user-input", @placeholder = "New Category" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10">
+                <input type="submit" id="submit-btn" value="Create" />
+            </div>
+        </div>
+    }
+    <div class="form-group">
+        <div class="col-md-10">
+            @Html.ActionLink("Back to List", "Index", routeValues: null, htmlAttributes: new { @class = "label" })
+        </div>
+    </div>
+</div>
+<div class="row"></div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,19 @@
+﻿@model _92031083_ModelRailStore.Models.RegisterViewModel
+<div class="bg-image scroll">
+    @using (Html.BeginForm("Register", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-horizontal">
+            @Html.Partial("_CreateRegisterUserPartial", Model);
+            <div class="form-group">
+                <div class="login-option col-md-10">
+                    <input type="image" src="/content/siteimages/register.png" alt="register btn" value="Create" width="120" height="50" />
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<div class="row"></div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

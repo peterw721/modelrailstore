@@ -1,0 +1,36 @@
+﻿@model _92031083_ModelRailStore.Models.ApplicationUser
+@{
+    ViewBag.Title = "User Details";
+}
+
+<h4 class="sidebar-left">@ViewBag.Title</h4>
+<div class="row"></div>
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            @Html.Partial("_UserDetailsPartial", Model)
+        </dl>
+    </div>
+    <div class="container">
+        <div class="row">
+            <h2>Roles this user belongs to:</h2>
+        </div>
+        @if (ViewBag.RoleNames.Count == 0)
+        {
+            <hr />
+            <h2>No roles found for this user</h2>
+        }
+        @foreach (var item in ViewBag.RoleNames)
+        {
+            <div class="row">
+                <h2>@item</h2>
+            </div>
+        }
+    </div>
+    <hr/>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+
+

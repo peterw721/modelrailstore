@@ -1,0 +1,214 @@
+﻿/*
+***
+* STYLESHEET FOR the styling in:
+* Model
+* View
+* Controller
+***
+* Used to add styling for user pages
+* of my Model railway Project.
+* 
+* Created by Peter Whyte on 31/01/2021
+* for Assignment 2 - 158258 - Web Development
+***
+*/	
+
+
+html {
+    margin: 5px; animation: fadeIn 2s; 
+    -webkit-animation: fadeIn 2s; /*Safari, Chrome and Opera > 12.1*/
+    -moz-animation: fadeIn 2s; /*Firefox <16*/
+    -ms-animation: fadein 2s; /*IE*/
+    -o-animation: fadeIn 2s; /*Opera < 12.1*/
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; }}
+
+body { color: darkgreen; background-color: whitesmoke; margin: 0 auto; font-size: 18px; font-family: Arial, Arial, Helvetica, sans-serif; }
+
+.header { background-color: #6B8E23; /* olive  */ padding: 0px 15px; }
+
+.header img { margin: 10px 0px 10px 0px; height: 180px; flex: 0 0; } 
+
+h1 { color: white; }
+
+h2 { font-family: Hack, monospace; font-size: 20px; line-height: 30px; }
+
+h3 { color: white; font-family: Copperplate, "Copperplate Gothic Light", fantasy; font-size: 50px; font-weight: bold; line-height: 110px; text-align: center;}
+
+h4 { color: darkblue; font-family: papyrus, fantasy; font-style:italic; font-size: 35px;  text-decoration: none; text-align: center; line-height: 40px; }
+
+h5 { font-family:'Comic Sans MS'; font-size: 13px; }
+
+h6 { color: green; }
+
+h2 a, h4 a { color: darkgreen; color: rgb(0,100,0) }
+
+h4 a:hover { color: navy; color:rgb(0,0,128); }
+
+h5:hover { background-color: yellow; }
+
+p { color: darkgreen; margin: 0 50px 0 50px; }
+
+p a { color: teal; }
+
+p a:hover { background-color: orange; }
+
+.nav { float: left; padding: 1px; text-align: center; font-size: 25px; line-height: 29px; border-radius: 0px; font-family: Georgia, serif;
+       font-weight: normal; text-decoration: none; font-style: normal; font-variant: normal; text-transform: none;
+       box-shadow: rgb(0, 0, 0) 5px 5px 15px 5px; border: 2px solid bisque; display: inline-block; width: 19%; height: 30px; white-space: normal; }
+
+.full-page { display: block; min-height: 400px; }
+
+.page-left { float: left; text-align: center; vertical-align: central; margin: 0 0 0 50px }
+
+.half-page-right { float: right; width: 40%; text-align: center; vertical-align: central; }
+
+.sidebar-left { float: left; margin: 0px; padding: 0px; }
+
+.sidebar-right { float: right; margin: 0px; padding: 0px; }
+
+.user-links { background-color: orange; }
+
+.user-links a, .user-links a:visited, .admin-links a, .admin-links a:visited { color: rgb(0, 100, 0); text-decoration: none; }
+
+.user-links a:hover { color: black; text-decoration: underline; }
+
+.admin-links { background-color: rgb(192, 192, 192); }
+
+.admin-links a:hover { color: white; text-decoration: underline; }
+
+.access-links { float:right; padding: 15px; }
+
+.with-highlight a:hover { background: #FFA500; /*orange*/ cursor: pointer; transition: all 0.5s; }
+
+.oval-shape {  float: right; border-radius: 100%; padding: 20px; color: orange; background: green; text-align: center; vertical-align: central; }
+
+.oval-shape a { color: orange; }
+
+.page-number { float: left; width: 40px; background-color: green; font-size: 30px; line-height: 40px; border-radius: 100%;
+     border: 4px solid bisque; text-align: center; vertical-align: central; }
+
+.page-number a { color: orange; text-decoration: none; font-stretch: extra-expanded; }
+
+.page-number a:hover { color: white; }
+
+.bg-image { background-image: url("/Content/SiteImages/model-rail.png"); float: right; width: 100%; height: 400px;
+            opacity: 0.6; background-position: center; background-repeat: no-repeat; background-size: cover;
+            position: relative; }
+
+.scroll { height: 550px; background-attachment: fixed; }
+
+table img { width: 100%; }
+
+.category-name { float: left; width: 30%; margin: 0 0 0 50px; }
+
+.category-image { float: right; width: 55%; margin: 0 60px 0 0; }
+
+.table-style { width: 100%; }
+
+.white { color: white; }
+
+.md-text { font-size: 21px; line-height: 42px; vertical-align: bottom; }
+
+.lg-text { font-size: 1.5em; }
+
+.lg-boldtext { font-size: 1.5em; font-weight: bold; }
+
+.warn-message {  width: 33%; background-color: orange; color: black; text-align: center; font-size: 1em; font-weight: bold; }
+
+.text-danger {  float: right; width: 33%; background-color: orange; color: black; text-align: center; font-size: 1em; font-weight: bold; }
+
+.validate-error {  width: 33%; background-color: orange; color: black; text-align: center; font-size: 1em; font-weight: bold;  }
+
+.red-background { background-color: #CD5C5C; /* indian red  */ padding: 0px 15px; }
+
+.olive-background { background-color: #6B8E23; /* olive */ padding: 0px 15px; }
+
+.gold-background { background-color: #FFD700; /* gold */ padding: 0px 15px; }
+
+.admin-options { width: 40%; color: black; line-height: 20px; padding: 5px;  text-align: center; vertical-align: central;}
+
+.admin-create { background-color: lawngreen; font-size:20px; line-height: 30px; }
+
+.admin-edit { background-color: lightblue; }
+
+.admin-details { background-color: lightgreen; }
+
+.admin-delete { background-color: pink; }
+
+.search-box { float: left; margin-top: 5px; height: 40px; width: 70%; font-size: 25px; text-align: left; border-radius: 3px; border: solid green;
+                  color: rgb(105,105,105); display: inline-block; }
+
+#search-button img { display: block; height: 40px; }
+
+.label { color: white; font-size: 20px; width: 25%; font-weight: bold; text-align: center; margin-top: 5px; float: left; white-space: nowrap; }
+
+.label-green { color: green; font-size: 20px; width: 25%; font-weight: bold; text-align: center; margin-top: 5px; float: left; white-space: nowrap; }
+
+.user-input { background: rgba(255,255,255,0.6); margin-top: 5px; height: 25px; width: 40%; font-size: 30px; text-align: left; border-radius: 3px;
+              border: solid orange; color: black; display: inline-block; }
+
+button { height: 40px; margin-top: 6px; padding: 0; }
+
+#submit-btn-green { color: orange; background-color: green; margin: 0 0 0 50px; width: 100px; height: 35px; padding: 0; cursor: pointer; }
+
+#submit-green-lg { color: orange; background-color: green; width: 150px; height: 35px; padding: 0; cursor: pointer; }
+
+#submit-btn { color: black; background-color: white; margin: 0 0 0 50px; width: 100px; height: 35px; padding: 0; cursor: pointer; }
+
+#add-btn { color: black; background-color: white; margin: 0 0 0 50px; width: 150px; height: 35px; padding: 0; cursor: pointer; }
+
+.login-option { display: block; margin: 0 0 0 50px; }
+
+.login-option a { color: white; }
+
+.login-option a:hover { color: navy; }
+
+.row:after { content: ""; display: table; clear: both; }
+
+.float-left { float: left; width: 40%; }
+
+.float-left-sm { float: left; width: 15%; }
+
+.wide { width: 100px; }
+
+input, textarea, select, button {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+dl {
+    width: 100%;
+    overflow: hidden;
+}
+dt {
+    float: left;
+    /*adjust the width, make sure the toital of both is 100*/
+    width: 50%;
+    /*clear left ensure that if there is an empty dd then the element do not wrap*/
+    clear: left;
+    font-weight: bold;
+}
+dd {
+    float: left;
+    /*adjust the width, make sure the toital of both is 100*/
+    width: 50%;
+}
+dt, dd {
+    line-height: 20px;
+    table { width: 100%; }
+}
+
+th {
+    font-weight: bold;
+    text-align: left;
+    padding: 5px;
+    border-bottom: 1px solid;
+}
+
+td {
+    padding: 5px;
+    vertical-align: top;
+}
+footer { margin-bottom: 20px; font-size: 12px; background-color: #6B8E23;  /*olive drab*/ color: white; height: 20px; line-height: 20px; padding: 5px; border-radius: 5px; }

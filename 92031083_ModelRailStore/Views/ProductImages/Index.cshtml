@@ -1,0 +1,45 @@
+﻿@model IEnumerable<_92031083_ModelRailStore.Models.ProductImage>
+
+@{
+    ViewBag.Title = "Upload New Image";
+}
+
+<h4 class="sidebar-left">@ViewBag.Title</h4>
+<div class="row"></div>
+    <h2 class="with-highlight">@Html.ActionLink("Upload New Image", "Upload")</h2>
+
+    <div class="olive-background">
+        <table class="table">
+            <tr>
+                <th>
+                    <h1>@Html.DisplayNameFor(model => model.FileName)</h1>
+                </th>
+                <th></th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <h1>@Html.DisplayFor(modelItem => item.FileName)</h1>
+                    </td>
+
+                    <td>
+                        @if (!String.IsNullOrWhiteSpace(item.FileName))
+                        {
+                            <img src="@(Url.Content(Constants.ProductImagePath) + item.FileName)" />
+                        }
+                    </td>
+
+                    <td>
+                        <h5 class="sidebar-left admin-edit">@Html.ActionLink("Edit", "Edit", new { id = item.ID }) </h5>
+                        <h5 class="sidebar-left admin-details">@Html.ActionLink("Details", "Details", new { id = item.ID })</h5>
+                        <h5 class="sidebar-left admin-delete">@Html.ActionLink("Delete", "Delete", new { id = item.ID })</h5>
+                    </td>
+                </tr>
+            }
+
+        </table>
+        <div class="row"></div>
+    </div>

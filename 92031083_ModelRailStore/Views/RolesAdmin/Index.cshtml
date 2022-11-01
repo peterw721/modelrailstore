@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Microsoft.AspNet.Identity.EntityFramework.IdentityRole>
+@{
+    ViewBag.Title = "Roles Administrator";
+}
+
+<h4 class="sidebar-left">@ViewBag.Title</h4>
+<div class="row"></div>
+    <h2 class="with-highlight">@Html.ActionLink("Create new", "Create")</h2>
+        <table class="table">
+            <tr>
+                <th>
+                    <h2>@Html.DisplayNameFor(model => model.Name)</h2>
+                </th>
+                <th>
+                </th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        <h5 class="sidebar-left admin-edit">@Html.ActionLink("Edit", "Edit", new { id = item.Id })</h5>
+                        <h5 class="sidebar-left admin-details">@Html.ActionLink("Details", "Details", new { id = item.Id })</h5>
+                        <h5 class="sidebar-left admin-delete">@Html.ActionLink("Delete", "Delete", new { id = item.Id })</h5>
+        </td>
+                </tr>
+            }
+        </table>
+

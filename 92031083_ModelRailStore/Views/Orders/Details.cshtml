@@ -1,0 +1,83 @@
+﻿@model _92031083_ModelRailStore.Models.Order
+
+@{
+    ViewBag.Title = "Order Details";
+}
+
+<div class="sidebar-left">
+    <h2 class="lg-boldtext">@ViewBag.Title</h2>
+</div>
+<div class="row"></div>
+    <div class="olive-background">
+         <hr />
+        <div class="row">
+            <div class="col-md-8 float-left">
+                <h1>Items(s)</h1>
+            </div>
+            <div class="col-md-2 float-left-sm">
+                <h1>Quantity</h1>
+            </div>
+            <div class="col-md-2 float-left-sm">
+                <h1>Unit Price</h1>
+            </div>
+        </div>
+        @foreach (var item in Model.OrderLines)
+        {
+            <div class="row">
+                <div class="col-md-8 float-left"><h1>@Html.DisplayFor(pn => item.ProductName)</h1></div>
+                <div class="col-md-2 float-left-sm"><h1>@Html.DisplayFor(q => item.Quantity)</h1></div>
+                <div class="col-md-2 float-left-sm"><h1>@Html.DisplayFor(up => item.UnitPrice)</h1></div>
+            </div>
+        }
+        <br />
+        <dl class="dl-horizontal">
+            <dt class="control-label label">
+                @Html.DisplayNameFor(model => model.TotalPrice)
+            </dt>
+            <dd class="control-label label">
+                @Html.DisplayFor(model => model.TotalPrice)
+            </dd>
+            <dt class="control-label label">
+                @Html.DisplayNameFor(model => model.OrderID)
+            </dt>
+            <dd class="control-label label">
+                @Html.DisplayFor(model => model.OrderID)
+            </dd>
+        </dl>
+        <br />
+        <div class="row"></div>
+    </div>
+
+    <div class="gold-background">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.DeliveryName)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.DeliveryName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DeliveryAddress)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.DeliveryAddress)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TotalPrice)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.TotalPrice)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DateCreated)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.DateCreated)
+            </dd>
+
+        </dl>
+    </div>
+<div class="row"></div>
